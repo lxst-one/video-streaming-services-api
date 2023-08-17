@@ -5,7 +5,7 @@ namespace LxstOne\VSS\src\services\voe\v1;
 use LxstOne\VSS\src\services\AbstractVideoStreamingService;
 
 /**
- * @method void setApiKey(string $apiKey)
+ * @method void setApiKey(string $apiKey) Set API key for object
  * @method array accountInfo() Provides some general information about the account. Cache: 5min
  * @method array accountStats() Statistics for the last 32 days.
  * @method array uploadServer() Get a suitable upload server.
