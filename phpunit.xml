@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<phpunit
+        bootstrap="./vendor/autoload.php"
+        colors="true"
+        processIsolation="false"
+        stopOnError="false"
+        stopOnFailure="false"
+        stopOnIncomplete="false"
+        stopOnSkipped="false"
+        stopOnRisky="false"
+
+        timeoutForSmallTests="1"
+        timeoutForMediumTests="10"
+        timeoutForLargeTests="60"
+>
+
+    <testsuites>
+        <testsuite name="Unit Tests Suite">
+            <directory>./tests/unit</directory>
+        </testsuite>
+    </testsuites>
+
+    <php>
+        <env name="EXAMPLE_MP4_FILEPATH" value="path-to-mp4-file" force="true" />
+        <env name="EXAMPLE_MP4_URL" value="direct-url-to-mp4-file" force="true" />
+        <env name="VOE_API_V1_KEY" value="voe-api-v1-key" force="true" />
+    </php>
+</phpunit>

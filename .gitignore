@@ -1,0 +1,4 @@
+.idea
+/vendor/
+example.mp4
+.phpunit.result.cache

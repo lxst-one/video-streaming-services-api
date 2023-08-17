@@ -1,0 +1,19 @@
+{
+  "name": "lxst-one/video-streaming-services-api",
+  "description": "API package for popular video streaming services",
+  "type": "library",
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "LxstOne\\VSS\\src\\": "src/",
+			"LxstOne\\VSS\\tests\\": "tests/"
+    }
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^10"
+  },
+	"require": {
+		"php": "^8.0",
+		"ext-curl": "*"
+	}
+}
