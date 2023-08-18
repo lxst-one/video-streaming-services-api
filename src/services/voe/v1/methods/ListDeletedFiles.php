@@ -7,7 +7,7 @@ use LxstOne\VSS\src\AbstractApi;
 use LxstOne\VSS\src\services\voe\v1\Voe;
 use LxstOne\VSS\src\shared\contracts\VideoStreamingServiceMethod;
 
-final class FilesList extends AbstractApi implements VideoStreamingServiceMethod
+final class ListDeletedFiles extends AbstractApi implements VideoStreamingServiceMethod
 {
     /**
      * @param array $data
@@ -17,16 +17,12 @@ final class FilesList extends AbstractApi implements VideoStreamingServiceMethod
     public function handle(array $data = []): array
     {
         $urlParamsArray = [
-            'key' => $data['key'],
-            'page' => $data[0] ?? 1,
-            'per_page' => $data[1] ?? 20,
-            'fld_id' => $data[2] ?? 0,
-            'created' => $data[3] ?? null,
-            'name' => $data[4] ?? null
+            'key' =>    $data['key'],
+            'last' =>   $data[0] ?? $data['numberOfLastFiles'] ?? null,
         ];
 
         return $this->get(
-            Voe::API_ENDPOINT . '/file/list?' . http_build_query($urlParamsArray)
+            Voe::API_ENDPOINT . '/files/deleted?' . http_build_query($urlParamsArray)
         );
     }
 }

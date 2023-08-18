@@ -7,7 +7,7 @@ use LxstOne\VSS\src\AbstractApi;
 use LxstOne\VSS\src\services\voe\v1\Voe;
 use LxstOne\VSS\src\shared\contracts\VideoStreamingServiceMethod;
 
-final class AccountStats extends AbstractApi implements VideoStreamingServiceMethod
+final class GetUploadServer extends AbstractApi implements VideoStreamingServiceMethod
 {
     /**
      * @param array $data
@@ -21,7 +21,7 @@ final class AccountStats extends AbstractApi implements VideoStreamingServiceMet
         ];
 
         return $this->get(
-            Voe::API_ENDPOINT . '/account/stats?' . http_build_query($urlParamsArray)
+            Voe::API_ENDPOINT . '/upload/server?' . http_build_query($urlParamsArray)
         );
     }
 }

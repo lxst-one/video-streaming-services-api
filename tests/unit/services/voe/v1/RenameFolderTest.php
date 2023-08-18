@@ -13,7 +13,7 @@ final class RenameFolderTest extends TestCase
     /**
      * @throws Exception
      */
-    public function testCanGetAccountInfo()
+    public function testCanRenameFolder()
     {
         $voe = $this->getVoeInstance();
 

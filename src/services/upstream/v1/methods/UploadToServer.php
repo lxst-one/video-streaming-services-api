@@ -17,11 +17,11 @@ final class UploadToServer extends AbstractApi implements VideoStreamingServiceM
      */
     public function handle(array $data = []): array
     {
-        if(!file_exists($data[1])) {
+        if(!file_exists($data[1] ?? $data['filePath'])) {
             throw new VideoNotFound;
         }
 
-        if(isset($data[4]) && !file_exists($data[4])) {
+        if((isset($data[4]) || isset($data['fileSnapshotPath'])) && !file_exists($data[4] ?? $data['fileSnapshotPath'])) {
             throw new SnapshotNotFound;
         }
 

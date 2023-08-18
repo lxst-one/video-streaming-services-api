@@ -22,7 +22,7 @@ final class FilesInfoTest extends TestCase
         $this->assertTrue($resultUploadToServer['status'] === 200);
         $fileCode = json_decode($resultUploadToServer['data'], true)['file']['file_code'];
 
-        $resultFilesInfo = $voe->filesInfo($fileCode);
+        $resultFilesInfo = $voe->getFilesInfo($fileCode);
         $this->assertTrue($resultFilesInfo['status'] === 200);
 
         $resultDeleteFiles = $voe->deleteFiles($fileCode);

@@ -17,8 +17,9 @@ final class DeleteFiles extends AbstractApi implements VideoStreamingServiceMeth
     public function handle(array $data = []): array
     {
         $urlParamsArray = [
-            'key' => $data['key'],
-            'del_code' => is_array($data[0]) ? implode(',', $data[0]) : $data[0],
+            'key' =>        $data['key'],
+            'del_code' =>   is_array($data[0] ?? $data['deleteCodes']) ?
+                implode(',', $data[0] ?? $data['deleteCodes']) : $data[0] ?? $data['deleteCodes'],
         ];
 
         return $this->get(

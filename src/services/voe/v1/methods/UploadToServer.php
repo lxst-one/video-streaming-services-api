@@ -16,19 +16,19 @@ final class UploadToServer extends AbstractApi implements VideoStreamingServiceM
      */
     public function handle(array $data = []): array
     {
-        if(!file_exists($data[1])) {
+        if(!file_exists($data[1] ?? $data['filePath'])) {
             throw new VideoNotFound;
         }
 
-        $curlFile = curl_file_create($data[1]);
+        $curlFile = curl_file_create($data[1] ?? $data['filePath']);
 
         $postParamsArray = [
-            'key' => $data['key'],
-            'file' => $curlFile,
+            'key' =>    $data['key'],
+            'file' =>   $curlFile,
         ];
 
         return $this->post(
-            $data[0],
+            $data[0] ?? $data['deliveryNodeUrl'],
             $postParamsArray
         );
     }

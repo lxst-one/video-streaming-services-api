@@ -17,9 +17,10 @@ final class MoveFiles extends AbstractApi implements VideoStreamingServiceMethod
     public function handle(array $data = []): array
     {
         $urlParamsArray = [
-            'key' => $data['key'],
-            'file_code' => is_array($data[0]) ? implode(',', $data[0]) : $data[0],
-            'fld_id' => $data[1]
+            'key' =>        $data['key'],
+            'file_code' =>  is_array($data[0] ?? $data['fileCodes']) ?
+                implode(',', $data[0] ?? $data['fileCodes']) : $data[0] ?? $data['fileCodes'],
+            'fld_id' =>     $data[1] ?? $data['folderId']
         ];
 
         return $this->get(

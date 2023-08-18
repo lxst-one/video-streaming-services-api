@@ -6,18 +6,18 @@ use Exception;
 use PHPUnit\Framework\TestCase;
 use LxstOne\VSS\tests\unit\services\voe\v1\traits\VoeInstance;
 
-final class DeletedDMCAFilesListTest extends TestCase
+final class ListDeletedFilesTest extends TestCase
 {
     use VoeInstance;
 
     /**
      * @throws Exception
      */
-    public function testCanGetDeletedDMCAFilesList()
+    public function testCanGetListOfDeletedFiles()
     {
         $voe = $this->getVoeInstance();
 
-        $resultDeletedDMCAFilesList = $voe->deletedDMCAFilesList(10);
-        $this->assertTrue($resultDeletedDMCAFilesList['status'] === 200);
+        $resultDeletedFilesList = $voe->listDeletedFiles(10);
+        $this->assertTrue($resultDeletedFilesList['status'] === 200);
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace tests\unit\services\voe\v1;
+namespace LxstOne\VSS\tests\unit\services\voe\v1;
 
 use Exception;
 use PHPUnit\Framework\TestCase;
@@ -14,7 +14,7 @@ final class CloneFileTest extends TestCase
     /**
      * @throws Exception
      */
-    public function testCanUploadToServer()
+    public function testCanCloneFile()
     {
         $voe = $this->getVoeInstance();
 

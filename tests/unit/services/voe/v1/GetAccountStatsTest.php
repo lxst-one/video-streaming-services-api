@@ -6,7 +6,7 @@ use Exception;
 use PHPUnit\Framework\TestCase;
 use LxstOne\VSS\tests\unit\services\voe\v1\traits\VoeInstance;
 
-final class AccountStatsTest extends TestCase
+final class GetAccountStatsTest extends TestCase
 {
     use VoeInstance;
 
@@ -16,7 +16,7 @@ final class AccountStatsTest extends TestCase
     public function testCanGetAccountStats()
     {
         $voe = $this->getVoeInstance();
-        $result = $voe->accountStats();
+        $result = $voe->getAccountStats();
 
         $this->assertTrue($result['status'] === 200);
     }

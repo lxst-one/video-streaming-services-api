@@ -17,9 +17,9 @@ final class RenameFile extends AbstractApi implements VideoStreamingServiceMetho
     public function handle(array $data = []): array
     {
         $urlParamsArray = [
-            'key' => $data['key'],
-            'file_code' => $data[0],
-            'title' => $data[1]
+            'key' =>        $data['key'],
+            'file_code' =>  $data[0] ?? $data['fileCode'],
+            'title' =>      $data[1] ?? $data['newTitle']
         ];
 
         return $this->get(

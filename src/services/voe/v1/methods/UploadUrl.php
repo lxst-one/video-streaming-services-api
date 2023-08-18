@@ -18,7 +18,7 @@ final class UploadUrl extends AbstractApi implements VideoStreamingServiceMethod
     {
         $urlParamsArray = [
             'key' => $data['key'],
-            'url' => $data[0]
+            'url' => $data[0] ?? $data['url']
         ];
 
         return $this->get(

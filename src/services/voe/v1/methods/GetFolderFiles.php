@@ -7,7 +7,7 @@ use LxstOne\VSS\src\AbstractApi;
 use LxstOne\VSS\src\services\voe\v1\Voe;
 use LxstOne\VSS\src\shared\contracts\VideoStreamingServiceMethod;
 
-final class AccountInfo extends AbstractApi implements VideoStreamingServiceMethod
+final class GetFolderFiles extends AbstractApi implements VideoStreamingServiceMethod
 {
     /**
      * @param array $data
@@ -17,11 +17,12 @@ final class AccountInfo extends AbstractApi implements VideoStreamingServiceMeth
     public function handle(array $data = []): array
     {
         $urlParamsArray = [
-            'key' => $data['key']
+            'key' =>    $data['key'],
+            'fld_id' => $data[0] ?? $data['folderCode'],
         ];
 
         return $this->get(
-            Voe::API_ENDPOINT . '/account/info?' . http_build_query($urlParamsArray)
+            Voe::API_ENDPOINT . '/folder/list?' . http_build_query($urlParamsArray)
         );
     }
 }

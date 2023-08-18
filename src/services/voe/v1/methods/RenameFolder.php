@@ -17,9 +17,9 @@ final class RenameFolder extends AbstractApi implements VideoStreamingServiceMet
     public function handle(array $data = []): array
     {
         $urlParamsArray = [
-            'key' => $data['key'],
-            'fld_id' => $data[0],
-            'name' => $data[1]
+            'key' =>    $data['key'],
+            'fld_id' => $data[0] ?? $data['folderId'],
+            'name' =>   $data[1] ?? $data['folderName']
         ];
 
         return $this->get(

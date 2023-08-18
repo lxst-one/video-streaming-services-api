@@ -14,7 +14,7 @@ final class RenameFileTest extends TestCase
     /**
      * @throws Exception
      */
-    public function testCanGetAccountInfo()
+    public function testCanRenameFile()
     {
         $voe = $this->getVoeInstance();
 

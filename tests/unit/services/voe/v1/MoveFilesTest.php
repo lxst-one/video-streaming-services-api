@@ -14,7 +14,7 @@ final class MoveFilesTest extends TestCase
     /**
      * @throws Exception
      */
-    public function testCanUploadToServer()
+    public function testCanMoveFiles()
     {
         $voe = $this->getVoeInstance();
 

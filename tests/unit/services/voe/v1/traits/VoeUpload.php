@@ -12,7 +12,7 @@ trait VoeUpload
      */
     private function uploadExampleFile(Voe $voe): array
     {
-        $resultUploadServer = $voe->uploadServer();
+        $resultUploadServer = $voe->getUploadServer();
         $deliveryNodeUrl = json_decode($resultUploadServer['data'], true)['result'];
 
         return $voe->uploadToServer($deliveryNodeUrl, $_ENV['EXAMPLE_MP4_FILEPATH']);

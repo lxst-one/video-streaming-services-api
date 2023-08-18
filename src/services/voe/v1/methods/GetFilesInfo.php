@@ -7,7 +7,7 @@ use LxstOne\VSS\src\AbstractApi;
 use LxstOne\VSS\src\services\voe\v1\Voe;
 use LxstOne\VSS\src\shared\contracts\VideoStreamingServiceMethod;
 
-final class DeletedDMCAFilesList extends AbstractApi implements VideoStreamingServiceMethod
+final class GetFilesInfo extends AbstractApi implements VideoStreamingServiceMethod
 {
     /**
      * @param array $data
@@ -17,13 +17,13 @@ final class DeletedDMCAFilesList extends AbstractApi implements VideoStreamingSe
     public function handle(array $data = []): array
     {
         $urlParamsArray = [
-            'key' => $data['key'],
-            'last' => $data[0],
-            'pending' => $data[1] ?? false
+            'key' =>        $data['key'],
+            'file_code' =>  is_array($data[0] ?? $data['fileCodes']) ?
+                implode(',', $data[0] ?? $data['fileCodes']) : $data[0] ?? $data['fileCodes']
         ];
 
         return $this->get(
-            Voe::API_ENDPOINT . '/dmca/list?' . http_build_query($urlParamsArray)
+            Voe::API_ENDPOINT . '/file/info?' . http_build_query($urlParamsArray)
         );
     }
 }

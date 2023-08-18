@@ -16,7 +16,7 @@ final class UploadServerTest extends TestCase
     public function testCanGetUploadServer()
     {
         $voe = $this->getVoeInstance();
-        $result = $voe->uploadServer();
+        $result = $voe->getUploadServer();
 
         $this->assertTrue($result['status'] === 200);
     }

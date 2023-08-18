@@ -13,7 +13,7 @@ final class CreateFolderTest extends TestCase
     /**
      * @throws Exception
      */
-    public function testCanUploadToServer()
+    public function testCanCreateFolder()
     {
         $voe = $this->getVoeInstance();
 
