@@ -13,7 +13,7 @@ use LxstOne\VSS\src\services\AbstractVideoStreamingService;
  * @method array uploadUrl(string $url) Add url to remote upload queue
  * @method array cloneFile(string $fileCode, int $folderId = 0) Clone existing file code, PROVIDED THE FILE OWNER HAS ALLOWED CLONING!
  * @method array getFilesInfo(string[]|string $fileCodes) Information about file(s) / mass check. Max 500
- * @method array listFiles(int $pageNumber = 1, int $perPage = 20, int $folderId = 0, string $createdAfter = null, string $fileName = null)
+ * @method array listFiles(int $pageNumber = 1, int $perPage = 20, int $folderId = 0, string $createdAfter = null, string $fileName = null) List files in folder
  * @method array renameFile(string $fileCode, string $newTitle) Rename file title
  * @method array moveFiles(string[]|string $fileCodes, int $folderId) Move file(s) to folder
  * @method array deleteFiles(string[]|string $deleteCodes) Delete file(s)

@@ -6,7 +6,7 @@ use LxstOne\VSS\src\services\AbstractVideoStreamingService;
 
 /**
  * @method void setApiKey(string $apiKey) Set API key for object
- * @method array getAccountInfo() Provides some general information about the account. Cache: 5min
+ * @method array getAccountInfo() Provides some general information about the account.
  * @method array getAccountStats(int $lastDays = 7) Statistics for the last x days.
  * @method array getUploadServer() Get a suitable upload server.
  * @method array uploadToServer(string $uploadServerUrl, string $filePath, string $fileName = null, string $fileDescription = null, string $fileSnapshotPath = null, int $folderId = null, int $categoryId = null, string $tagsString = null, bool $filePublic = null, bool $fileAdult = null, bool $htmlRedirect = null) Upload file to delivery node
