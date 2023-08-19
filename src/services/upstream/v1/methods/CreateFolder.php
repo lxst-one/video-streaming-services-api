@@ -18,9 +18,9 @@ final class CreateFolder extends AbstractApi implements VideoStreamingServiceMet
     {
         $urlParamsArray = [
             'key' =>        $data['key'],
-            'name' =>       $data[0] ?? $data['folderName'] ?? null,
-            'parent_id' =>  $data[1] ?? $data['parentFolderId'] ?? null,
-            'descr' =>      $data[2] ?? $data['folderDescription'] ?? null
+            'name' =>       $data[0] ?? $data['folderName'],
+            'descr' =>      $data[1] ?? $data['folderDescription'] ?? '',
+            'parent_id' =>  $data[2] ?? $data['parentFolderId'] ?? null,
         ];
 
         return $this->get(

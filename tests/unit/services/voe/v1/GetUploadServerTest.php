@@ -6,7 +6,7 @@ use Exception;
 use PHPUnit\Framework\TestCase;
 use LxstOne\VSS\tests\unit\services\voe\v1\traits\VoeInstance;
 
-final class UploadServerTest extends TestCase
+final class GetUploadServerTest extends TestCase
 {
     use VoeInstance;
 

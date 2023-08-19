@@ -15,13 +15,12 @@ use LxstOne\VSS\src\services\AbstractVideoStreamingService;
  * @method array getFilesInfo(string[]|string $fileCodes) Information about file(s)
  * @method array editFiles(string[]|string $fileCodes, string $fileTitle = null, string $fileDescription = null, int $categoryId = null, int $folderId = null, bool $filePublic = null, bool $fileAdult = null, string $tagsString = null) Edit file(s)
  * @method array listFiles(int $pageNumber = null, int $perPage = null, int $folderId = null, string $createdAfter = null, string $fileName = null, bool $filePublic = null, bool $fileAdult = null) List uploaded files
- * @method array deleteFiles(string[]|string $deleteCodes) Delete file(s)
  * @method array listFolder(int $folderId = null, bool $showFiles = null) List folders/files in folder
- * @method array createFolder(string $folderName, int $parentFolderId = null, string $folderDescription = null) Create new folder
+ * @method array createFolder(string $folderName, string $folderDescription = '', int $parentFolderId = null) Create new folder
  * @method array editFolder(int $folderId, string $folderName = null, int $parentFolderId = null, string $folderDescription = null) Update folder details
  * @method array listDeletedFiles(int $lastHours = null) Get last deleted files list
  * @method array listDeletedDMCAFiles(int $lastHours = null) Get files scheduled for DMCA delete
- * @method array getEncodingsQueue(string $fileCode = null) Get current encoding queues
+ * @method array getEncodingQueue(string $fileCode = null) Get current encoding queue
  */
 final class Upstream extends AbstractVideoStreamingService
 {

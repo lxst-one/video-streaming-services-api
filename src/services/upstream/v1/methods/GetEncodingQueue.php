@@ -7,7 +7,7 @@ use LxstOne\VSS\src\AbstractApi;
 use LxstOne\VSS\src\services\upstream\v1\Upstream;
 use LxstOne\VSS\src\shared\contracts\VideoStreamingServiceMethod;
 
-final class GetEncodingsQueue extends AbstractApi implements VideoStreamingServiceMethod
+final class GetEncodingQueue extends AbstractApi implements VideoStreamingServiceMethod
 {
     /**
      * @param array $data

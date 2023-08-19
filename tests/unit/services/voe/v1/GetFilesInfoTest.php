@@ -7,7 +7,7 @@ use PHPUnit\Framework\TestCase;
 use LxstOne\VSS\tests\unit\services\voe\v1\traits\VoeInstance;
 use LxstOne\VSS\tests\unit\services\voe\v1\traits\VoeUpload;
 
-final class FilesInfoTest extends TestCase
+final class GetFilesInfoTest extends TestCase
 {
     use VoeInstance, VoeUpload;
 
