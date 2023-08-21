@@ -18,6 +18,18 @@ abstract class AbstractApi
         CURLOPT_HEADER => true
     ];
 
+    protected array $defaultDeleteOptions = [
+        CURLOPT_CUSTOMREQUEST => 'DELETE',
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_HEADER => true
+    ];
+
+    protected array $defaultPutOptions = [
+        CURLOPT_CUSTOMREQUEST => 'PUT',
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_HEADER => true
+    ];
+
     /**
      * @param string $url
      * @return array
@@ -39,10 +51,44 @@ abstract class AbstractApi
      * @param array $data
      * @return array
      */
-    public function post(string $url, array $data): array
+    public function post(string $url, array $data = []): array
     {
         $ch = curl_init($url);
         curl_setopt_array($ch, $this->defaultPostOptions);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+        $response = curl_exec($ch);
+        $result = $this->processResponse($ch, $response);
+        curl_close($ch);
+
+        return $result;
+    }
+
+    /**
+     * @param string $url
+     * @param array $data
+     * @return array
+     */
+    public function delete(string $url, array $data = []): array
+    {
+        $ch = curl_init($url);
+        curl_setopt_array($ch, $this->defaultDeleteOptions);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+        $response = curl_exec($ch);
+        $result = $this->processResponse($ch, $response);
+        curl_close($ch);
+
+        return $result;
+    }
+
+    /**
+     * @param string $url
+     * @param array $data
+     * @return array
+     */
+    public function put(string $url, array $data = []): array
+    {
+        $ch = curl_init($url);
+        curl_setopt_array($ch, $this->defaultPutOptions);
         curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
         $response = curl_exec($ch);
         $result = $this->processResponse($ch, $response);

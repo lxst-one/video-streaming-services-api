@@ -23,10 +23,13 @@
 
     <php>
         <env name="EXAMPLE_MP4_FILEPATH" value="path-to-mp4-file" force="true" />
-        <env name="EXAMPLE_MP4_URL" value="direct-url-to-mp4-file" force="true" />
         <env name="EXAMPLE_SNAPSHOT_FILEPATH" value="path-to-snapshot-file" force="true" />
+        <env name="EXAMPLE_SRT_FILEPATH" value="path-to-srt-file" force="true" />
+        <env name="EXAMPLE_MP4_URL" value="url-to-mp4" force="true" />
+        <env name="EXAMPLE_SRT_URL" value="url-to-srt-file" force="true" />
 
         <env name="VOE_API_V1_KEY" value="voe-api-v1-key" force="true" />
         <env name="UPSTREAM_API_V1_KEY" value="upstream-api-v1-key" force="true" />
+        <env name="VIDOZA_API_V1_KEY" value="vidoza-api-v1-key" force="true" />
     </php>
 </phpunit>

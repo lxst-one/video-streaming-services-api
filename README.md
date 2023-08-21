@@ -2,10 +2,11 @@
 Unofficial API client package for popular video streaming services. Currently supported:
 * Voe.sx
 * Upstream.to
+* Vidoza.net
 
 # Installation
 
-**Required PHP version >= 8.x**
+**Required PHP version >= 8.1**
 
 Currently, I have no plans to support lower versions, you can fork this repo and rewrite it.
 ```shell 
@@ -20,6 +21,7 @@ use \LxstOne\VSS\src\VideoStreamingService;
 
 $voe        = VideoStreamingService::voe('api-key', 'v1');
 $upstream   = VideoStreamingService::upstream('api-key', 'v1');
+$vidoza     = VideoStreamingService::vidoza('api-key', 'v1');
 ```
 First parameter is your API key (can be different for each instance), second is optional which specify API version to use
 (by default the newest version is used)
@@ -36,6 +38,7 @@ Return result is always an array containing values:
 ### API docs
 * Voe.sx            - https://voe.sx/api-1-reference-index
 * Upstream.to       - https://upstream.to/api.html
+* Vidoza.net        - https://vidoza.net/api
 
 ### Voe.sx implemented methods
 ```php
@@ -102,6 +105,43 @@ public interface upstreamV1 {
     function listDeletedFiles(int $lastHours = null): array;                            //Get last deleted files list
     function listDeletedDMCAFiles(int $lastHours = null): array;                        //Get files scheduled for DMCA delete
     function getEncodingQueue(string $fileCode = null): array;                          //Get current encoding queue
+}
+```
+
+### Vidoza.net implemented methods
+```php
+//==============================
+//|         API V1
+//==============================
+
+public interface vidozaV1 {
+    function setApiKey(string $apiKey): void;                                           //Set API key for object
+    function getUploadServer(): array;                                                  //Get a suitable upload server.
+    function uploadToServer(string $uploadServerUrl, string $sessionId,
+        string $filePath, string $fileTitle = null, int $folderId = null,
+        VideoCategory $category = null): array;                                         //Upload file to delivery node
+    function uploadUrl(string $url, int $folderId, VideoCategory $category): array;     //Add url to remote upload queue.
+    function listUrlUploadQueue(): array;                                               //List url upload tasks in queue
+    function removeUrlUploadTask(int $taskId): array;                                   //Destroy exists task from queue
+    function getFilesInfo(string|string[] $filesCodes): array;                          //Get info about files
+    function listFolders(int $folderId = null): array;                                  //List folder(s)
+    function renameFolder(int $folderId, string $folderName): array;                    //Rename folder
+    function createFolder(string $folderName, int $folderParentId = null): array;       //Create new folder
+    function listFiles(string $fileName = null, string $fileNameSEO = null,
+        string $title = null, int $folderId = null, VideoCategory $category = null,
+        int $downloadsFrom = null, int $viewsPaidFrom = null, int $downloadsTo = null,
+        int $viewsPaidTo = null, SortingColumn $sortColumn = null,
+        SortingDirection $sortDirection = null): array;                                 //List files by filters
+    function editFile(string $fileCode, string $fileName, string $fileNameSEO,
+        string $title, string $folderId): array;                                        //Edit file
+    function listSrtForFile(string $fileCode): array;                                   //Shows the list srt of your file
+    function uploadSrtForFile(string $fileCode, VideoLang $lang,
+        string $srtPath): array;                                                        //Upload srt for file
+    function uploadSrtUrlForFile(string $fileCode, VideoLang $lang,
+        string $srtUrl): array;                                                         //Upload srt (from url) for file
+    function removeSrtForFile(string $fileCode, VideoLang $lang,
+        VideoLangExtension $extension): array;                                          //Destroy selected srt lang from you file
+    function listFileAbuses(): array;                                                   //List your abuses files
 }
 ```
 

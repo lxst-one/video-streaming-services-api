@@ -5,6 +5,7 @@ namespace LxstOne\VSS\src;
 /**
  * @method static voe(string $apiKey, string $apiVersion = 'v1')
  * @method static upstream(string $apiKey, string $apiVersion = 'v1')
+ * @method static vidoza(string $apiKey, string $apiVersion = 'v1')
  */
 abstract class VideoStreamingService
 {
