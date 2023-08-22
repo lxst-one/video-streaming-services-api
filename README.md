@@ -3,6 +3,7 @@ Unofficial API client package for popular video streaming services. Currently su
 * Voe.sx
 * Upstream.to
 * Vidoza.net
+* Doodstream.co
 
 # Installation
 
@@ -22,6 +23,7 @@ use \LxstOne\VSS\src\VideoStreamingService;
 $voe        = VideoStreamingService::voe('api-key', 'v1');
 $upstream   = VideoStreamingService::upstream('api-key', 'v1');
 $vidoza     = VideoStreamingService::vidoza('api-key', 'v1');
+$doodstream = VideoStreamingService::doodstream('api-key', 'v1');
 ```
 First parameter is your API key (can be different for each instance), second is optional which specify API version to use
 (by default the newest version is used)
@@ -39,6 +41,7 @@ Return result is always an array containing values:
 * Voe.sx            - https://voe.sx/api-1-reference-index
 * Upstream.to       - https://upstream.to/api.html
 * Vidoza.net        - https://vidoza.net/api
+* Doodstream.co     - https://doodstream.co/api-docs
 
 ### Voe.sx implemented methods
 ```php
@@ -142,6 +145,39 @@ public interface vidozaV1 {
     function removeSrtForFile(string $fileCode, VideoLang $lang,
         VideoLangExtension $extension): array;                                          //Destroy selected srt lang from you file
     function listFileAbuses(): array;                                                   //List your abuses files
+}
+```
+
+### Doodstream.co implemented methods
+```php
+//==============================
+//|         API V1
+//==============================
+
+public interface doodstreamV1 {
+    function setApiKey(string $apiKey): void;                                           //Set API key for object
+    function getAccountInfo(): array;                                                   //Get basic info of your account
+    function getAccountReports(int $lastDays = 7, string $fromDate = null,
+        string $toDate = null): array;                                                  //Get reports of your account (default last 7 days)
+    function listDMCAReports(int $perPage = null, int $page = null): array;             //Get DMCA reported files list (500 results per page)
+    function getUploadServer(): array;                                                  //Get a suitable upload server.
+    function uploadToServer(string $uploadServerUrl, string $filePath): array;          //Upload file to server
+    function cloneFile(string $fileCode, int $folderId = null): array;                  //Copy / Clone yours or other's file
+    function uploadUrl(string $url, int $folderId = null, string $title = null): array; //Upload files using direct links
+    function listUrlUploadQueue(): array;                                               //Remote Upload List & Status
+    function getUrlUploadStatus(string $fileCode): array;                               //Remote Upload Status
+    function getUrlUploadSlots(): array;                                                //Get total & used remote upload slots
+    function editUrlUploads(bool $restartErrors = null, bool $clearErrors = null,       
+        bool $clearAll = null, bool $deleteUrlCode = null): array;                      //Perform various actions on remote uploads
+    function createFolder(string $name, int $parentFolderId = null): array;             //Create a folder
+    function renameFolder(int $folderId, string $newName): array;                       //Rename folder
+    function listFiles(int $page = null, int $perPage = null,                           
+        int $folderId = null): array;                                                   //List all files
+    function getFileStatus(string $fileCode): array;                                    //Check status of your file
+    function getFileInfo(string $fileCode): array;                                      //Get file info
+    function getFileImage(string $fileCode): array;                                     //Get file splash, single or thumbnail image
+    function renameFile(string $fileCode, string $newName): array;                      //Rename your file
+    function searchFile(string $searchTerm): array;                                     //Search your files
 }
 ```
 

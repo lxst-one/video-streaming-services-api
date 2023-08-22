@@ -1,9 +1,9 @@
 <?php
 
-namespace LxstOne\VSS\tests\unit\services\upstream\v1;
+namespace LxstOne\VSS\tests\unit\services\doodstream\v1;
 
 use Exception;
-use LxstOne\VSS\tests\unit\services\upstream\v1\traits\DoodstreamInstance;
+use LxstOne\VSS\tests\unit\services\doodstream\v1\traits\DoodstreamInstance;
 use PHPUnit\Framework\TestCase;
 
 final class GetUploadServerTest extends TestCase
@@ -15,9 +15,8 @@ final class GetUploadServerTest extends TestCase
      */
     public function testCanGetUploadServer()
     {
-        $upstream = $this->getUpstreamInstance();
-        $result = $upstream->getUploadServer();
-
+        $doodstream = $this->getDoodstreamInstance();
+        $result = $doodstream->getUploadServer();
         $this->assertTrue($result['status'] === 200);
     }
 }

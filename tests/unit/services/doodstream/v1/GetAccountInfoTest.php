@@ -1,9 +1,9 @@
 <?php
 
-namespace LxstOne\VSS\tests\unit\services\upstream\v1;
+namespace LxstOne\VSS\tests\unit\services\doodstream\v1;
 
 use Exception;
-use LxstOne\VSS\tests\unit\services\upstream\v1\traits\DoodstreamInstance;
+use LxstOne\VSS\tests\unit\services\doodstream\v1\traits\DoodstreamInstance;
 use PHPUnit\Framework\TestCase;
 
 final class GetAccountInfoTest extends TestCase
@@ -15,8 +15,8 @@ final class GetAccountInfoTest extends TestCase
      */
     public function testCanGetAccountInfo()
     {
-        $voe = $this->getUpstreamInstance();
-        $result = $voe->getAccountInfo();
+        $doodstream = $this->getDoodstreamInstance();
+        $result = $doodstream->getAccountInfo();
 
         $this->assertTrue($result['status'] === 200);
     }

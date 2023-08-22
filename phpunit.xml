@@ -31,5 +31,6 @@
         <env name="VOE_API_V1_KEY" value="voe-api-v1-key" force="true" />
         <env name="UPSTREAM_API_V1_KEY" value="upstream-api-v1-key" force="true" />
         <env name="VIDOZA_API_V1_KEY" value="vidoza-api-v1-key" force="true" />
+        <env name="DOODSTREAM_API_V1_KEY" value="doodstream-api-v1-key" force="true" />
     </php>
 </phpunit>
