@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<phpunit
+        colors="true"
+        processIsolation="false"
+        stopOnError="false"
+        stopOnFailure="false"
+        stopOnIncomplete="false"
+        stopOnSkipped="false"
+        stopOnRisky="false"
+
+        timeoutForSmallTests="1"
+        timeoutForMediumTests="10"
+        timeoutForLargeTests="60"
+>
+
+    <testsuites>
+        <testsuite name="Unit Tests Suite">
+            <directory>./tests/unit</directory>
+        </testsuite>
+    </testsuites>
+
+    <php>
+        <env name="EXAMPLE_MP4_FILEPATH" value="example.mp4" force="true" />
+        <env name="EXAMPLE_SNAPSHOT_FILEPATH" value="example.jpg" force="true" />
+        <env name="EXAMPLE_SRT_FILEPATH" value="path-to-srt-file" force="true" />
+        <env name="EXAMPLE_MP4_URL" value="https://vwaw031.cda.pl/UhVyC9bquhIsU9V96eLQJg/1692586888/lqdbc7c2f94b3978a11d2574a062139068.mp4" force="true" />
+        <env name="EXAMPLE_SRT_URL" value="https://pastebin.com/dl/9FXQp05L" force="true" />
+
+        <env name="VOE_API_V1_KEY" value="voe-api-v1-key" force="true" />
+        <env name="UPSTREAM_API_V1_KEY" value="upstream-api-v1-key" force="true" />
+        <env name="VIDOZA_API_V1_KEY" value="vidoza-api-v1-key" force="true" />
+        <env name="DOODSTREAM_API_V1_KEY" value="283841tyo6un2vnz3dje51" force="true" />
+        <env name="STREAMHUB_API_V1_KEY" value="streamhub-api-v1-key" force="true" />
+    </php>
+</phpunit>
