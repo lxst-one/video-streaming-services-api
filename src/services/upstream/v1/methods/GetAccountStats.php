@@ -17,8 +17,8 @@ final class GetAccountStats extends AbstractApi implements VideoStreamingService
     public function handle(array $data = []): array
     {
         $urlParamsArray = [
-            'key' =>    $data['key'],
-            'last' =>   $data[0] ?? $data['lastDays'] ?? 7
+            'key'  => $data['key'],
+            'last' => $data[0] ?? $data['lastDays'] ?? 7
         ];
 
         return $this->get(

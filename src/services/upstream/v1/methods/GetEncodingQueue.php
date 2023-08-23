@@ -17,8 +17,8 @@ final class GetEncodingQueue extends AbstractApi implements VideoStreamingServic
     public function handle(array $data = []): array
     {
         $urlParamsArray = [
-            'key' =>    $data['key'],
-            'code' =>   $data[0] ?? $data['fileCode'] ?? null
+            'key'  => $data['key'],
+            'code' => $data[0] ?? $data['fileCode'] ?? null
         ];
 
         return $this->get(

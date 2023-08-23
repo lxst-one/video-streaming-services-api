@@ -17,8 +17,8 @@ final class GetFilesInfo extends AbstractApi implements VideoStreamingServiceMet
     public function handle(array $data = []): array
     {
         $urlParamsArray = [
-            'key' =>        $data['key'],
-            'file_code' =>  is_array($data[0] ?? $data['fileCodes']) ?
+            'key'       => $data['key'],
+            'file_code' => is_array($data[0] ?? $data['fileCodes']) ?
                 implode(',', $data[0] ?? $data['fileCodes']) : $data[0] ?? $data['fileCodes']
         ];
 

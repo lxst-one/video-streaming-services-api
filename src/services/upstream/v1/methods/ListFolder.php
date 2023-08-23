@@ -17,9 +17,9 @@ final class ListFolder extends AbstractApi implements VideoStreamingServiceMetho
     public function handle(array $data = []): array
     {
         $urlParamsArray = [
-            'key' =>        $data['key'],
-            'fld_id' =>     $data[0] ?? $data['folderId'] ?? null,
-            'files' =>      $data[1] ?? $data['showFiles'] ?? null,
+            'key'    => $data['key'],
+            'fld_id' => $data[0] ?? $data['folderId'] ?? null,
+            'files'  => $data[1] ?? $data['showFiles'] ?? null,
         ];
 
         return $this->get(

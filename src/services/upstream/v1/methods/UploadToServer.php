@@ -26,18 +26,18 @@ final class UploadToServer extends AbstractApi implements VideoStreamingServiceM
         }
 
         $postParamsArray = [
-            'key' =>            $data['key'],
-            'file' =>           curl_file_create($data[1] ?? $data['filePath']),
-            'file_title' =>     $data[2] ?? $data['fileName'] ?? null,
-            'file_descr' =>     $data[3] ?? $data['fileDescription'] ?? null,
-            'snapshot' =>       isset($data[4]) || isset($data['fileSnapshotPath']) ?
+            'key'           => $data['key'],
+            'file'          => curl_file_create($data[1] ?? $data['filePath']),
+            'file_title'    => $data[2] ?? $data['fileName'] ?? null,
+            'file_descr'    => $data[3] ?? $data['fileDescription'] ?? null,
+            'snapshot'      => isset($data[4]) || isset($data['fileSnapshotPath']) ?
                 curl_file_create($data[4] ?? $data['fileSnapshotPath']) : null,
-            'fld_id' =>         $data[5] ?? $data['folderId'] ?? null,
-            'cat_id' =>         $data[6] ?? $data['categoryId'] ?? null,
-            'tags' =>           $data[7] ?? $data['tagsString'] ?? null,
-            'file_public' =>    $data[8] ?? $data['filePublic'] ?? null,
-            'file_adult' =>     $data[9] ?? $data['fileAdult'] ?? null,
-            'html_redirect' =>  $data[10] ?? $data['htmlRedirect'] ?? null,
+            'fld_id'        => $data[5] ?? $data['folderId'] ?? null,
+            'cat_id'        => $data[6] ?? $data['categoryId'] ?? null,
+            'tags'          => $data[7] ?? $data['tagsString'] ?? null,
+            'file_public'   => $data[8] ?? $data['filePublic'] ?? null,
+            'file_adult'    => $data[9] ?? $data['fileAdult'] ?? null,
+            'html_redirect' => $data[10] ?? $data['htmlRedirect'] ?? null,
         ];
 
         return $this->post(

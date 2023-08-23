@@ -17,9 +17,9 @@ final class CloneFile extends AbstractApi implements VideoStreamingServiceMethod
     public function handle(array $data = []): array
     {
         $urlParamsArray = [
-            'key' =>            $data['key'],
-            'file_code' =>      $data[0] ?? $data['fileCode'],
-            'file_title' =>     $data[1] ?? $data['fileName'] ?? null
+            'key'           => $data['key'],
+            'file_code'     => $data[0] ?? $data['fileCode'],
+            'file_title'    => $data[1] ?? $data['fileName'] ?? null
         ];
 
         return $this->get(

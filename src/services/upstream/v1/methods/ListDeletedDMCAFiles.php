@@ -17,8 +17,8 @@ final class ListDeletedDMCAFiles extends AbstractApi implements VideoStreamingSe
     public function handle(array $data = []): array
     {
         $urlParamsArray = [
-            'key' =>    $data['key'],
-            'last' =>   $data[0] ?? $data['lastHours'] ?? null,
+            'key'  => $data['key'],
+            'last' => $data[0] ?? $data['lastHours'] ?? null,
         ];
 
         return $this->get(

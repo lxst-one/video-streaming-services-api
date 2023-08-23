@@ -17,13 +17,13 @@ final class UploadUrl extends AbstractApi implements VideoStreamingServiceMethod
     public function handle(array $data = []): array
     {
         $urlParamsArray = [
-            'key' =>            $data['key'],
-            'url' =>            $data[0] ?? $data['url'],
-            'fld_id' =>         $data[1] ?? $data['folderId'] ?? null,
-            'cat_id' =>         $data[2] ?? $data['categoryId'] ?? null,
-            'file_public' =>    $data[3] ?? $data['filePublic'] ?? null,
-            'file_adult' =>     $data[4] ?? $data['fileAdult'] ?? null,
-            'tags' =>           $data[5] ?? $data['tagsString'] ?? null,
+            'key'         => $data['key'],
+            'url'         => $data[0] ?? $data['url'],
+            'fld_id'      => $data[1] ?? $data['folderId'] ?? null,
+            'cat_id'      => $data[2] ?? $data['categoryId'] ?? null,
+            'file_public' => $data[3] ?? $data['filePublic'] ?? null,
+            'file_adult'  => $data[4] ?? $data['fileAdult'] ?? null,
+            'tags'        => $data[5] ?? $data['tagsString'] ?? null,
         ];
 
         return $this->get(
