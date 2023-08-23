@@ -12,7 +12,7 @@ Unofficial API client package for popular video streaming services. Currently su
 
 Currently, I have no plans to support lower versions, you can fork this repo and rewrite it.
 ```shell 
-composer install lxst-one/video-streaming-services-api 
+composer require lxst-one/video-streaming-services-api 
 ```
 
 # Quick start
