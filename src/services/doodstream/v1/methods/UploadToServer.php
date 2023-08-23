@@ -18,7 +18,7 @@ final class UploadToServer extends AbstractApi implements VideoStreamingServiceM
     {
         $filePath = $data[1] ?? $data['filePath'];
 
-        if(file_exists($filePath)) {
+        if(!file_exists($filePath)) {
             throw new VideoNotFound;
         }
 

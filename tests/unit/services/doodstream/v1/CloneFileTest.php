@@ -19,7 +19,7 @@ final class CloneFileTest extends TestCase
         $doodstream = $this->getDoodstreamInstance();
         $resultUploadExampleFile = $this->uploadExampleFile($doodstream);
         $this->assertTrue($resultUploadExampleFile['status'] === 200);
-        $fileCode = json_decode($resultUploadExampleFile['data'], true)['result']['filecode'];
+        $fileCode = json_decode($resultUploadExampleFile['data'], true)['result'][0]['filecode'];
 
         $resultCloneFile = $doodstream->cloneFile($fileCode);
         $this->assertTrue($resultCloneFile['status'] === 200);

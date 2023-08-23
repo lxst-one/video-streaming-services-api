@@ -19,7 +19,7 @@ final class RenameFileTest extends TestCase
         $doodstream = $this->getDoodstreamInstance();
         $resultUploadExampleFile = $this->uploadExampleFile($doodstream);
         $this->assertTrue($resultUploadExampleFile['status'] === 200);
-        $fileCode = json_decode($resultUploadExampleFile['data'], true)['result']['filecode'];
+        $fileCode = json_decode($resultUploadExampleFile['data'], true)['result'][0]['filecode'];
 
         $resultRenameFile = $doodstream->renameFile($fileCode, 'test-'.time());
         $this->assertTrue($resultRenameFile['status'] === 200);
