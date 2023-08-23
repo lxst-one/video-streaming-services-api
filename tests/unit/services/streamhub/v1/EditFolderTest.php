@@ -1,27 +1,27 @@
 <?php
 
-namespace LxstOne\VSS\tests\unit\services\upstream\v1;
+namespace LxstOne\VSS\tests\unit\services\streamhub\v1;
 
 use Exception;
-use LxstOne\VSS\tests\unit\services\upstream\v1\traits\UpstreamInstance;
+use LxstOne\VSS\tests\unit\services\streamhub\v1\traits\StreamhubInstance;
 use PHPUnit\Framework\TestCase;
 
 final class EditFolderTest extends TestCase
 {
-    use UpstreamInstance;
+    use StreamhubInstance;
 
     /**
      * @throws Exception
      */
     public function testCanEditFolder()
     {
-        $upstream = $this->getUpstreamInstance();
+        $streamhub = $this->getStreamhubInstance();
 
-        $resultCreateFolder = $upstream->createFolder('test-'.time());
+        $resultCreateFolder = $streamhub->createFolder('test-'.time());
         $this->assertTrue($resultCreateFolder['status'] === 200);
         $folderId = json_decode($resultCreateFolder['data'], true)['result']['fld_id'];
 
-        $resultEditFolder = $upstream->editFolder($folderId, 'time-'.time());
+        $resultEditFolder = $streamhub->editFolder($folderId, 'time-'.time());
         $this->assertTrue($resultEditFolder['status'] === 200);
     }
 }

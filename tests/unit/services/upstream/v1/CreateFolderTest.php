@@ -3,12 +3,12 @@
 namespace LxstOne\VSS\tests\unit\services\upstream\v1;
 
 use Exception;
-use LxstOne\VSS\tests\unit\services\upstream\v1\traits\DoodstreamInstance;
+use LxstOne\VSS\tests\unit\services\upstream\v1\traits\UpstreamInstance;
 use PHPUnit\Framework\TestCase;
 
 final class CreateFolderTest extends TestCase
 {
-    use DoodstreamInstance;
+    use UpstreamInstance;
 
     /**
      * @throws Exception

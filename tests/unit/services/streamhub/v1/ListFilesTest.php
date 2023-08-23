@@ -1,23 +1,23 @@
 <?php
 
-namespace LxstOne\VSS\tests\unit\services\upstream\v1;
+namespace LxstOne\VSS\tests\unit\services\streamhub\v1;
 
 use Exception;
-use LxstOne\VSS\tests\unit\services\upstream\v1\traits\UpstreamInstance;
+use LxstOne\VSS\tests\unit\services\streamhub\v1\traits\StreamhubInstance;
 use PHPUnit\Framework\TestCase;
 
 final class ListFilesTest extends TestCase
 {
-    use UpstreamInstance;
+    use StreamhubInstance;
 
     /**
      * @throws Exception
      */
     public function testCanGetListOfFiles()
     {
-        $upstream = $this->getUpstreamInstance();
+        $streamhub = $this->getStreamhubInstance();
 
-        $resultListFiles = $upstream->listFiles();
+        $resultListFiles = $streamhub->listFiles();
         $this->assertTrue($resultListFiles['status'] === 200);
     }
 }

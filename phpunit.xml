@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <phpunit
-        bootstrap="./vendor/autoload.php"
         colors="true"
         processIsolation="false"
         stopOnError="false"
@@ -32,5 +31,6 @@
         <env name="UPSTREAM_API_V1_KEY" value="upstream-api-v1-key" force="true" />
         <env name="VIDOZA_API_V1_KEY" value="vidoza-api-v1-key" force="true" />
         <env name="DOODSTREAM_API_V1_KEY" value="doodstream-api-v1-key" force="true" />
+        <env name="STREAMHUB_API_V1_KEY" value="streamhub-api-v1-key" force="true" />
     </php>
 </phpunit>

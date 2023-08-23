@@ -4,6 +4,7 @@ Unofficial API client package for popular video streaming services. Currently su
 * Upstream.to
 * Vidoza.net
 * Doodstream.co
+* Streamhub.to
 
 # Installation
 
@@ -24,6 +25,7 @@ $voe        = VideoStreamingService::voe('api-key', 'v1');
 $upstream   = VideoStreamingService::upstream('api-key', 'v1');
 $vidoza     = VideoStreamingService::vidoza('api-key', 'v1');
 $doodstream = VideoStreamingService::doodstream('api-key', 'v1');
+$streamhub  = VideoStreamingService::streamhub('api-key', 'v1');
 ```
 First parameter is your API key (can be different for each instance), second is optional which specify API version to use
 (by default the newest version is used)
@@ -42,6 +44,7 @@ Return result is always an array containing values:
 * Upstream.to       - https://upstream.to/api.html
 * Vidoza.net        - https://vidoza.net/api
 * Doodstream.co     - https://doodstream.co/api-docs
+* Streamhub.to      - https://streamhub.to/api.html
 
 ### Voe.sx implemented methods
 ```php
@@ -178,6 +181,47 @@ public interface doodstreamV1 {
     function getFileImage(string $fileCode): array;                                     //Get file splash, single or thumbnail image
     function renameFile(string $fileCode, string $newName): array;                      //Rename your file
     function searchFile(string $searchTerm): array;                                     //Search your files
+}
+```
+
+### Streamhub.to implemented methods
+```php
+//==============================
+//|         API V1
+//==============================
+
+public interface streamhubV1 {
+    function setApiKey(string $apiKey): void;                                           //Set API key for object
+    function getAccountInfo(): array;                                                   //Provides some general information about the account.
+    function getAccountStats(int $lastDays = 7): array;                                 //Statistics for the last x days.
+    function getUploadServer(): array;                                                  //Get a suitable upload server.
+    function uploadToServer(string $uploadServerUrl, string $filePath,
+        string $fileName = null, string $fileDescription = null,
+        string $fileSnapshotPath = null, int $folderId = null, int $categoryId = null,
+        string $tagsString = null, bool $filePublic = null, bool $fileAdult = null,
+        bool $htmlRedirect = null): array;                                              //Upload file to delivery node
+    function uploadUrl(string $url, int $folderId = null, int $categoryId = null,
+        bool $filePublic = null, bool $fileAdult = null,
+        string $tagsString = null): array;                                              //Add url to remote upload queue
+    function cloneFile(string $fileCode, string $fileName = null): array;               //Clone existing file code
+    function getFilesInfo(string[]|string $fileCodes): array;                           //Information about file(s)
+    function editFiles(string[]|string $fileCodes, string $fileTitle = null,
+        string $fileDescription = null, int $categoryId = null, int $folderId = null,
+        bool $filePublic = null, bool $fileAdult = null,
+        string $tagsString = null): array;                                              //Edit file(s)
+    function listFiles(int $pageNumber = null, int $perPage = null,
+        int $folderId = null, string $createdAfter = null, string $fileName = null,
+        bool $filePublic = null, bool $fileAdult = null): array;                        //List uploaded files
+    function listFolder(int $folderId = null, bool $showFiles = null): array;           //List folders/files in folder
+    function createFolder(string $folderName, string $folderDescription = '',
+        int $parentFolderId = null): array;                                             //Create new folder
+    function editFolder(int $folderId, string $folderName = null,
+        int $parentFolderId = null, string $folderDescription = null): array;           //Update folder details
+    function listDeletedFiles(int $lastHours = null): array;                            //Get last deleted files list
+    function listDeletedDMCAFiles(int $lastHours = null): array;                        //Get files scheduled for DMCA delete
+    function getEncodingQueue(string $fileCode = null): array;                          //Get current encoding queue
+    function getFileDirectLink(string $fileCode, VideoQuality $videoQuality = null,
+        bool $hls = null)                                                               //Get file direct links
 }
 ```
 

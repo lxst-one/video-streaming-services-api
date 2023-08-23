@@ -1,22 +1,22 @@
 <?php
 
-namespace LxstOne\VSS\tests\unit\services\upstream\v1;
+namespace LxstOne\VSS\tests\unit\services\streamhub\v1;
 
 use Exception;
-use LxstOne\VSS\tests\unit\services\upstream\v1\traits\UpstreamInstance;
+use LxstOne\VSS\tests\unit\services\streamhub\v1\traits\StreamhubInstance;
 use PHPUnit\Framework\TestCase;
 
 final class GetAccountStatsTest extends TestCase
 {
-    use UpstreamInstance;
+    use StreamhubInstance;
 
     /**
      * @throws Exception
      */
     public function testCanGetAccountStats()
     {
-        $upstream = $this->getUpstreamInstance();
-        $result = $upstream->getAccountStats();
+        $streamhub = $this->getStreamhubInstance();
+        $result = $streamhub->getAccountStats();
 
         $this->assertTrue($result['status'] === 200);
     }

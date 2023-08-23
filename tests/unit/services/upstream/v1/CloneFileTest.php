@@ -3,13 +3,13 @@
 namespace LxstOne\VSS\tests\unit\services\upstream\v1;
 
 use Exception;
-use LxstOne\VSS\tests\unit\services\upstream\v1\traits\DoodstreamInstance;
-use LxstOne\VSS\tests\unit\services\upstream\v1\traits\DoodstreamUpload;
+use LxstOne\VSS\tests\unit\services\upstream\v1\traits\UpstreamInstance;
+use LxstOne\VSS\tests\unit\services\upstream\v1\traits\UpstreamUpload;
 use PHPUnit\Framework\TestCase;
 
 final class CloneFileTest extends TestCase
 {
-    use DoodstreamInstance, DoodstreamUpload;
+    use UpstreamInstance, UpstreamUpload;
 
     /**
      * @throws Exception

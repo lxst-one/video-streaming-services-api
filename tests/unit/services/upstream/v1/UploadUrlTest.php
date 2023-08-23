@@ -3,21 +3,21 @@
 namespace LxstOne\VSS\tests\unit\services\upstream\v1;
 
 use Exception;
-use LxstOne\VSS\tests\unit\services\upstream\v1\traits\DoodstreamInstance;
+use LxstOne\VSS\tests\unit\services\upstream\v1\traits\UpstreamInstance;
 use PHPUnit\Framework\TestCase;
 
 final class UploadUrlTest extends TestCase
 {
-    use DoodstreamInstance;
+    use UpstreamInstance;
 
     /**
      * @throws Exception
      */
     public function testCanUploadUrl()
     {
-        $voe = $this->getUpstreamInstance();
+        $upstream = $this->getUpstreamInstance();
 
-        $resultUploadUrl = $voe->uploadUrl($_ENV['EXAMPLE_MP4_URL']);
+        $resultUploadUrl = $upstream->uploadUrl($_ENV['EXAMPLE_MP4_URL']);
         $this->assertTrue($resultUploadUrl['status'] === 200);
     }
 }
